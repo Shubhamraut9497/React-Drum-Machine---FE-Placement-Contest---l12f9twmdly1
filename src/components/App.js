@@ -59,11 +59,15 @@ function ControlScreen() {
 }
 
 function App() {
+  const [power,setPower]=useState(false);
+  const [volume,setVolume]=useState(1);
+  const togglePower=(value)=>{
+    setPower(value);
+  }
   return (
     <div id='drum-machine'>
-      
-      <Pads/>
-      <ControlScreen  />
+      <Pads power={power} volume={volume}/>
+      <ControlScreen  power={power} togglePower={togglePower} volume={volume} setVolume={setVolume} />
     </div>
   );
 }
